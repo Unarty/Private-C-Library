@@ -1,6 +1,6 @@
-/**************Copyright(C)£¬2015-2026 QY TEMP  ********************************
-  *@brief   : AES ¼ÓÃÜËã·¨Í·ÎÄ¼ş
-  *@notes   : 2016.11.10 CGQ ´´½¨   
+ï»¿/**************Copyright(C)ï¼Œ2015-2026 QY TEMP  ********************************
+  *@brief   : JSION.h Jsion æ“ä½œ
+  *@notes   : 2016.11.10 CGQ åˆ›å»º   
 *******************************************************************************/
 #ifndef __CJSON_H
 #define __CJSON_H
@@ -12,19 +12,19 @@ typedef int (*JSONTrans)(char *data, void *dest, int size);
 
 typedef enum
 {
-	CHAR		= 0,	//×Ö·û´®
-	SIGNED 		= 1, //ÓĞ·ûºÅÊı
-	UNSIGNED 	= 2, //ÎŞ·ûºÅÊı
-}MemberType_e;	//½á¹¹Ìå³ÉÔ±ÀàĞÍÃ¶¾Ù
+	CHAR		= 0,	//å­—ç¬¦ä¸²
+	SIGNED 		= 1, //æœ‰ç¬¦å·æ•°
+	UNSIGNED 	= 2, //æ— ç¬¦å·æ•°
+}MemberType_e;	//ç»“æ„ä½“æˆå‘˜ç±»å‹æšä¸¾
 
 typedef struct
 {
-	int  offset;		//Ïà¶ÔÆ«ÒÆÎ»ÖÃ
-	int  size;			//³ÉÔ±Õ¼ÓÃ¿Õ¼ä´óĞ¡ 
-	JSONTrans create; //´´½¨
+	int  offset;		//ç›¸å¯¹åç§»ä½ç½®
+	int  size;			//æˆå‘˜å ç”¨ç©ºé—´å¤§å° 
+	JSONTrans create; //åˆ›å»º
 	JSONTrans parse;
-	char name[1];		//³ÉÔ±Ãû
-}StructMember_t;	//³ÉÔ±ÃèÊö 
+	char name[1];		//æˆå‘˜å
+}StructMember_t;	//æˆå‘˜æè¿° 
 
 typedef struct
 {

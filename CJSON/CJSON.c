@@ -1,6 +1,6 @@
-/**************Copyright(C)£¬2015-2026£¬QY Temp, Ltd.***************
-  *@brief   : JSON ´´½¨/½âÎö
-  *@notes   : 2017.02.27 CGQ ´´½¨   
+ï»¿/**************Copyright(C)ï¼Œ2015-2026ï¼ŒQY Temp, Ltd.***************
+  *@brief   : JSON åˆ›å»º/è§£æ
+  *@notes   : 2017.02.27 CGQ åˆ›å»º   
 *******************************************************************************/
 #include "CJSON.h"
 #include "stdlib/r_stdlib.h"
@@ -29,10 +29,10 @@ static JSONTrans parseTab[] = {
 };
 
 /*******************************************************************************
-  * @brief  ×Ö·û´´½¨
+  * @brief  å­—ç¬¦åˆ›å»º
   * @note   None
   * @param  
-  * @retval ×ª»»ºó×Ö·û´®³¤¶È
+  * @retval è½¬æ¢åå­—ç¬¦ä¸²é•¿åº¦
 *******************************************************************************/
 static int char_creat(char *str, void *dest, int size)
 {
@@ -40,10 +40,10 @@ static int char_creat(char *str, void *dest, int size)
 }
 
 /*******************************************************************************
-  * @brief  ×Ö·û×ª»»
+  * @brief  å­—ç¬¦è½¬æ¢
   * @note   None
   * @param  
-  * @retval ·µ»Øjson×Ö·û´®³¤¶È
+  * @retval è¿”å›jsonå­—ç¬¦ä¸²é•¿åº¦
 *******************************************************************************/
 static int char_parse(char *str, void *dest, int size)
 {
@@ -52,10 +52,10 @@ static int char_parse(char *str, void *dest, int size)
 
 
 /*******************************************************************************
-  * @brief  ÓĞ·ûºÅÊı´´½¨
+  * @brief  æœ‰ç¬¦å·æ•°åˆ›å»º
   * @note   None
   * @param  
-  * @retval ×ª»»ºó×Ö·û´®³¤¶È
+  * @retval è½¬æ¢åå­—ç¬¦ä¸²é•¿åº¦
 *******************************************************************************/
 static int signed_creat(char *str, void *dest, int size)
 {
@@ -68,10 +68,10 @@ static int signed_creat(char *str, void *dest, int size)
 }
 
 /*******************************************************************************
-  * @brief  ÓĞ·ûºÅÊı×ª»»
+  * @brief  æœ‰ç¬¦å·æ•°è½¬æ¢
   * @note   None
   * @param  
-  * @retval ·µ»Øjson×Ö·û´®³¤¶È
+  * @retval è¿”å›jsonå­—ç¬¦ä¸²é•¿åº¦
 *******************************************************************************/
 static int signed_parse(char *str, void *dest, int size)
 {
@@ -84,10 +84,10 @@ static int signed_parse(char *str, void *dest, int size)
 }
 
 /*******************************************************************************
-  * @brief  ÎŞ·ûºÅÊı´´½¨
+  * @brief  æ— ç¬¦å·æ•°åˆ›å»º
   * @note   None
   * @param  
-  * @retval ×ª»»ºó×Ö·û´®³¤¶È
+  * @retval è½¬æ¢åå­—ç¬¦ä¸²é•¿åº¦
 *******************************************************************************/
 static int unsigned_creat(char *str, void *dest, int size)
 {
@@ -98,10 +98,10 @@ static int unsigned_creat(char *str, void *dest, int size)
 }
 
 /*******************************************************************************
-  * @brief  ÎŞ·ûºÅÊı×ª»»
+  * @brief  æ— ç¬¦å·æ•°è½¬æ¢
   * @note   None
   * @param  
-  * @retval ·µ»Øjson×Ö·û´®³¤¶È
+  * @retval è¿”å›jsonå­—ç¬¦ä¸²é•¿åº¦
 *******************************************************************************/
 static int unsigned_parse(char *str, void *dest, int size)
 {
@@ -114,14 +114,14 @@ static int unsigned_parse(char *str, void *dest, int size)
 }
 
 /*******************************************************************************
-  * @brief  ³ÉÔ±½á¹¹ÌåÌí¼Ó
+  * @brief  æˆå‘˜ç»“æ„ä½“æ·»åŠ 
   * @note   None
-  * @param  jsonMember: 	½á¹¹Ìå³ÉÔ±ÃèÊöÁ´±íÍ·
-  			name:			³ÉÔ±Ãû
-  			offset: 		³ÉÔ±Ïà¶ÔÆ«ÒÆµØÖ·
-  			type:			³ÉÔ±ÀàĞÍ
-  			size:			Õ¼ÓÃ¿Õ¼ä´óĞ¡ 
-  * @retval ·µ»Øjson×Ö·û´®³¤¶È
+  * @param  jsonMember: 	ç»“æ„ä½“æˆå‘˜æè¿°é“¾è¡¨å¤´
+  			name:			æˆå‘˜å
+  			offset: 		æˆå‘˜ç›¸å¯¹åç§»åœ°å€
+  			type:			æˆå‘˜ç±»å‹
+  			size:			å ç”¨ç©ºé—´å¤§å° 
+  * @retval è¿”å›jsonå­—ç¬¦ä¸²é•¿åº¦
 *******************************************************************************/
 void CJSON_itemAdd(ListHandler_t *jsonMember, char *name, int offset, MemberType_e type, int size)
 {
@@ -141,12 +141,12 @@ void CJSON_itemAdd(ListHandler_t *jsonMember, char *name, int offset, MemberType
 }
 
 /*******************************************************************************
-  * @brief  ´´½¨JSONÊı¾İ°ü
+  * @brief  åˆ›å»ºJSONæ•°æ®åŒ…
   * @note   None
-  * @param  item: 	½á¹¹ÌåÏîÃèÊö
-  			struct: Ä¿±ê½á¹¹ĞİÄÚÈİ
-  			jsonString: ´ò°üºó´æ´¢µØÖ·
-  * @retval ·µ»Øjson×Ö·û´®³¤¶È
+  * @param  item: 	ç»“æ„ä½“é¡¹æè¿°
+  			struct: ç›®æ ‡ç»“æ„ä¼‘å†…å®¹
+  			jsonString: æ‰“åŒ…åå­˜å‚¨åœ°å€
+  * @retval è¿”å›jsonå­—ç¬¦ä¸²é•¿åº¦
 *******************************************************************************/
 int CJSON_create(ListHandler_t *jsonMember, void *pStruct, char *jsonString)
 {
@@ -174,12 +174,12 @@ int CJSON_create(ListHandler_t *jsonMember, void *pStruct, char *jsonString)
 }
 
 /*******************************************************************************
-  * @brief  ´´½¨JSONÊı¾İ°ü
+  * @brief  åˆ›å»ºJSONæ•°æ®åŒ…
   * @note   None
-  * @param  item: 	½á¹¹ÌåÏîÃèÊö
-  			struct: Ä¿±ê½á¹¹ĞİÄÚÈİ
-  			jsonString: ´ò°üºó´æ´¢µØÖ·
-  * @retval ·µ»Ø×ª»»½á¹û
+  * @param  item: 	ç»“æ„ä½“é¡¹æè¿°
+  			struct: ç›®æ ‡ç»“æ„ä¼‘å†…å®¹
+  			jsonString: æ‰“åŒ…åå­˜å‚¨åœ°å€
+  * @retval è¿”å›è½¬æ¢ç»“æœ
 *******************************************************************************/
 int CJSON_parse(ListHandler_t *jsonMember, void *pStruct, char *jsonString)
 {
@@ -218,12 +218,12 @@ int CJSON_parse(ListHandler_t *jsonMember, void *pStruct, char *jsonString)
 
 
 /*******************************************************************************
-  * @brief  »ñÈ¡Json³ÉÔ±
+  * @brief  è·å–Jsonæˆå‘˜
   * @note   None
-  * @param  item: 	½á¹¹ÌåÏîÃèÊö
-  			struct: Ä¿±ê½á¹¹ĞİÄÚÈİ
-  			jsonString: ´ò°üºó´æ´¢µØÖ·
-  * @retval ·µ»Ø×ª»»½á¹û >0 ½á¹¹Ìå³ÉÔ±¸öÊı 0: JSON¸ñÊ½´íÎó -1 : ÄÚ´æÉêÇëÊ§°Ü
+  * @param  item: 	ç»“æ„ä½“é¡¹æè¿°
+  			struct: ç›®æ ‡ç»“æ„ä¼‘å†…å®¹
+  			jsonString: æ‰“åŒ…åå­˜å‚¨åœ°å€
+  * @retval è¿”å›è½¬æ¢ç»“æœ >0 ç»“æ„ä½“æˆå‘˜ä¸ªæ•° 0: JSONæ ¼å¼é”™è¯¯ -1 : å†…å­˜ç”³è¯·å¤±è´¥
 *******************************************************************************/
 static int CJSON_member(ListHandler_t *JSONMember, char *jsonString)
 {
@@ -276,11 +276,11 @@ static int CJSON_member(ListHandler_t *JSONMember, char *jsonString)
 
 
 /*******************************************************************************
-  * @brief  ½á¹¹Ìå³ÉÔ±Ãû±È½Ï
+  * @brief  ç»“æ„ä½“æˆå‘˜åæ¯”è¾ƒ
   * @note   None
-  * @param  dest: 	Ä¿±ê
-  			itemName: Ïî¶¨ÒåÃû
-  * @retval ·µ»Ø×ª»»½á¹û >0 ½á¹¹Ìå³ÉÔ±¸öÊı 0: JSON¸ñÊ½´íÎó -1 : ÄÚ´æÉêÇëÊ§°Ü
+  * @param  dest: 	ç›®æ ‡
+  			itemName: é¡¹å®šä¹‰å
+  * @retval è¿”å›è½¬æ¢ç»“æœ >0 ç»“æ„ä½“æˆå‘˜ä¸ªæ•° 0: JSONæ ¼å¼é”™è¯¯ -1 : å†…å­˜ç”³è¯·å¤±è´¥
 *******************************************************************************/
 static u8_t CJSON_nameCmp(void *dest, void *itemName)
 {

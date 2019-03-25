@@ -1,7 +1,7 @@
-/***************************Copyright QYKJ   2015-06-18*************************
-нд	╪Чё╨	main.c
-к╣	цВё╨	о╣мЁжВ╨╞йЩ
-пч║║╦дё╨	2015.06.18 Unarty establish
+О╩©/***************************Copyright QYKJ   2015-06-18*************************
+Ф√┤	Д╩╤О╪ 	fifo.h
+Х╞╢	Ф≤▌О╪ 	И≤÷Е┬≈Ф⌠█Д╫°Е┤╫Ф∙╟
+Д©╝Ц──Ф■╧О╪ 	2015.06.18 Unarty establish
 *******************************************************************************/
 #ifndef __FIFO_H
 #define __FIFO_H
@@ -19,19 +19,19 @@ typedef struct
 
 
 
-void 	fifo_init(FIFO_t *fifo, void *buf, mcu_t size); //╤сапЁУй╪╩╞
-void 	fifo_reset(FIFO_t *fifo);                    //╤сапгЕ©у
-void    fifo_clearn(FIFO_t *fifo, mcu_t len);         //╤сапгЕюМ
+void 	fifo_init(FIFO_t *fifo, void *buf, mcu_t size); //И≤÷Е┬≈Е┬²Е╖▀Е▄√
+void 	fifo_reset(FIFO_t *fifo);                    //И≤÷Е┬≈Ф╦┘Г╘╨
+void    fifo_clearn(FIFO_t *fifo, mcu_t len);         //И≤÷Е┬≈Ф╦┘Г░├
 void    fifo_offset(FIFO_t *fifo, mcu_t offset);
-mcu_t 	fifo_freeSpace(FIFO_t *fifo);     		//╤сап©исц©у╪Д
-mcu_t 	fifo_userSpace(FIFO_t *fifo);        	//╤сапрясц©у╪Д
-mcu_t	fifo_empty(FIFO_t *fifo);					//╤сапйг╥Ян╙©у
-mcu_t	fifo_full(FIFO_t *fifo);						//╤сап²Mеп╤оf
+mcu_t 	fifo_freeSpace(FIFO_t *fifo);     		//И≤÷Е┬≈Е▐╞Г■╗Г╘╨И≈╢
+mcu_t 	fifo_userSpace(FIFO_t *fifo);        	//И≤÷Е┬≈Е╥╡Г■╗Г╘╨И≈╢
+mcu_t	fifo_empty(FIFO_t *fifo);					//И≤÷Е┬≈Ф≤╞Е░╕Д╦╨Г╘╨
+mcu_t	fifo_full(FIFO_t *fifo);						//И≤÷Е┬≈Ф╩©Е┬╓Ф√╜f
 mcu_t 	fifo_puts(FIFO_t *fifo, void *buf, mcu_t len);
 mcu_t	fifo_gets(FIFO_t *fifo, void *buf, mcu_t len);
 mcu_t 	fifo_putc(FIFO_t *fifo, u8_t dat);
 mcu_t 	fifo_getc(FIFO_t *fifo, u8_t *data);
-void    fifo_dataGet(FIFO_t *fifo, u8_t *trg, mcu_t offset, mcu_t len);  //╤сапйЩ╬щ╩Ях║
+void    fifo_dataGet(FIFO_t *fifo, u8_t *trg, mcu_t offset, mcu_t len);  //И≤÷Е┬≈Ф∙╟Ф█╝Х▌╥Е▐√
 mcu_t 	fifo_find(FIFO_t *fifo, mcu_t findStart, mcu_t findStop, const u8_t *cmpData, mcu_t cmpSize);
 							
 #endif //fifo.h end

@@ -1,6 +1,6 @@
-/**************Copyright(C)£¨2015-2026 QY TEMP  ********************************
-  *@brief   : AES 128º”√‹À„∑®Õ∑Œƒº˛
-  *@notes   : 2016.11.10 CGQ ¥¥Ω®   
+Ôªø/**************Copyright(C)Ôºå2015-2026 QY TEMP  ********************************
+  *@brief   : AES 128Âä†ÂØÜÁÆóÊ≥ïÂ§¥Êñá‰ª∂
+  *@notes   : 2016.11.10 CGQ ÂàõÂª∫   
 *******************************************************************************/
 #ifndef _AES_128_H
 #define _AES_128_H
@@ -13,8 +13,8 @@
 #define     AES_OFB_MODE
 
 #define AES_TYPE    (128)
-#define AES_BLOCK_SIZE  (AES_TYPE/8)        //øÈ¥Û–°
-#define AES_MATRIX      (AES_TYPE/32)       //æÿ’Û¥Û–°  MATRIX * 4
+#define AES_BLOCK_SIZE  (AES_TYPE/8)        //ÂùóÂ§ßÂ∞è
+#define AES_MATRIX      (AES_TYPE/32)       //Áü©ÈòµÂ§ßÂ∞è  MATRIX * 4
 #define AES_ROUND       (AES_MATRIX + 6)
 
 

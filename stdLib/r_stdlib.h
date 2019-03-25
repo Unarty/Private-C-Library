@@ -1,17 +1,17 @@
-/***************************Copyright QYKJ   2015-06-18*************************
-ÎÄ	¼ş£º	r_stdlib.h
-Ëµ	Ã÷£º	ÖØĞ´C±ê×¼¿âº¯Êı
-ĞŞ¡¡¸Ä£º	2015.06.20 Unarty establish
+ï»¿/***************************Copyright QYKJ   2015-06-18*************************
+æ–‡	ä»¶ï¼š	r_stdlib.h
+è¯´	æ˜ï¼š	é‡å†™Cæ ‡å‡†åº“å‡½æ•°
+ä¿®ã€€æ”¹ï¼š	2015.06.20 Unarty establish
 *******************************************************************************/
 #ifndef __R_STDLIB_H
 #define __R_STDLIB_H
 
 #include "typedef.h"
                                 
-void 	*r_memcpy(void *trg, const void *src, u32_t num); //ÄÚ´æ¿¼±¸
-u32_t  	r_memcmp(void *trg,  const void *src, u32_t num);	//ÄÚ´æ±È½Ï
-void 	*r_memmove(void *trg,  const void *src, u32_t num);	//ÄÚ´æÒÆ¶¯
-void 	r_memset(void *trg, u8_t const val, u32_t num);	//ÄÚ´æÉèÖÃ 
+void 	*r_memcpy(void *trg, const void *src, u32_t num); //å†…å­˜è€ƒå¤‡
+u32_t  	r_memcmp(void *trg,  const void *src, u32_t num);	//å†…å­˜æ¯”è¾ƒ
+void 	*r_memmove(void *trg,  const void *src, u32_t num);	//å†…å­˜ç§»åŠ¨
+void 	r_memset(void *trg, u8_t const val, u32_t num);	//å†…å­˜è®¾ç½® 
 void 	*r_memfind(void *trg, u32_t trgLen, const void *src, u32_t srcLen);
 
 u32_t 	r_strlen(const char *src);

@@ -1,7 +1,6 @@
-/***************************Copyright QYKJ   2015-06-18*************************
-��	����	Typedef.h
-˵	����	�������Ͷ���
-�ޡ��ģ�	2015.06.28 Unarty establish
+/***************************Copyright QY TEAM   2015-06-18***********************
+*@brief   :Typedef.h
+*@notes   : 2015.06.28 Unarty establish
 			2016.04.10 Unarty Change User 8/32bit MCU 
 *******************************************************************************/    
 #ifndef __TYPEDEF_H
@@ -14,7 +13,7 @@
 #define NULL				((void*)0)
 #endif
 
-#define mcu_t				u32_t		//mcu ��ַ��� 
+#define mcu_t				u32_t		//mcu
 
 #define MAX(a, b)			((a) > (b) ? (a) : (b))
 #define MIN(a, b)			((a) > (b) ? (b) : (a))
@@ -22,7 +21,7 @@
 
 #define SIZE(n)             (sizeof(n)/sizeof(n[0]))
 
-/*�ݴ��*/
+
 #define ERRR(conf, ret)     do               \
                             {                \
                                 if (conf)    \

@@ -1,37 +1,37 @@
-/********************************Copyright I&S Team*****************************
- * £ª ÎÄ¼þÃû£º	memory.c
- * £ª ÃèÊö	£º	ÄÚ´æ²Ù×÷ÊµÏÖÔ­Âë
- * £ª ´´½¨Õß£º	UnartyChen
- * £ª °æ±¾	£º	V1.0
- * £ª ÈÕÆÚ	£º	2015.03.12
- * £ª ÐÞ¸Ä	£º	2017.03.17 Unarty
-                ¸üÐÂ×Ö½Ú¶ÔÆë·½·¨ line = 50. ÒÆ³ýÄÚ´æÆðÊ¼±ß½çÅÐ¶Ï£¬ 
-                ÐÞ¸ÄÄÚ´æ±ê¼Ç·½·¨£¬MEMORY_FLAG^areaSize
+ï»¿/********************************Copyright I&S Team*****************************
+ * ï¼Š æ–‡ä»¶åï¼š	memory.c
+ * ï¼Š æè¿°	ï¼š	å†…å­˜æ“ä½œå®žçŽ°åŽŸç 
+ * ï¼Š åˆ›å»ºè€…ï¼š	UnartyChen
+ * ï¼Š ç‰ˆæœ¬	ï¼š	V1.0
+ * ï¼Š æ—¥æœŸ	ï¼š	2015.03.12
+ * ï¼Š ä¿®æ”¹	ï¼š	2017.03.17 Unarty
+                æ›´æ–°å­—èŠ‚å¯¹é½æ–¹æ³• line = 50. ç§»é™¤å†…å­˜èµ·å§‹è¾¹ç•Œåˆ¤æ–­ï¼Œ 
+                ä¿®æ”¹å†…å­˜æ ‡è®°æ–¹æ³•ï¼ŒMEMORY_FLAG^areaSize
                 2017.09.05 Unarty
-                ¸üÐÂ·ÖÅäBug, µ±¿É·ÖÅäÇøÓò n - size < sizeof(MemArea_t) Ê±, »á³öÏÖÏÂÏÂ½áµãÄÚ´æÖµ¸´¸Ç
-                ÐÞ¸Ä·ÖÅäÄÚ´æ±ê¼Ç·½·¨¡£
+                æ›´æ–°åˆ†é…Bug, å½“å¯åˆ†é…åŒºåŸŸ n - size < sizeof(MemArea_t) æ—¶, ä¼šå‡ºçŽ°ä¸‹ä¸‹ç»“ç‚¹å†…å­˜å€¼å¤ç›–
+                ä¿®æ”¹åˆ†é…å†…å­˜æ ‡è®°æ–¹æ³•ã€‚
  * ****************************************************************************/
 #include "memory.h"
 
 #define MEMORY_FLAG		(0xA55A55AA)//((void*)0x4885A112)
-#define MEMORY_ALIGNMENT (4)                //ÄÚ´æ×îÐ¡±ß½ç¶ÔÆë
+#define MEMORY_ALIGNMENT (4)                //å†…å­˜æœ€å°è¾¹ç•Œå¯¹é½
    
 typedef struct memArea
 {
 	struct memArea	*nextArea;
 	mcu_t			areaSize;
-}MemArea_t;		//ÄÚ´æÇøÓò¿éÃèÊö
+}MemArea_t;		//å†…å­˜åŒºåŸŸå—æè¿°
 
 static MemArea_t *mem;
 
 
 /*******************************************************************************
- * £ª º¯ÊýÃû£º	memory_init
- * £ª ÃèÊö	£º	ÄÚ´æÉêÇë·ÖÅä¿Õ¼ä³õÊ¼»¯
- * £ª ²ÎÊý	£º	memAddr:	¶¯Ì¬ÄÚ´æ·ÖÅäµÄµØÖ·
-				memSize:	¶¯Ì¬ÄÚ´æ·ÖÅäµÄ¿Õ¼ä
- * £ª ·µ»Ø	£º	ÎÞ
- * £ª ×¢Òâ	£º	ÎÞ
+ * ï¼Š å‡½æ•°åï¼š	memory_init
+ * ï¼Š æè¿°	ï¼š	å†…å­˜ç”³è¯·åˆ†é…ç©ºé—´åˆå§‹åŒ–
+ * ï¼Š å‚æ•°	ï¼š	memAddr:	åŠ¨æ€å†…å­˜åˆ†é…çš„åœ°å€
+				memSize:	åŠ¨æ€å†…å­˜åˆ†é…çš„ç©ºé—´
+ * ï¼Š è¿”å›ž	ï¼š	æ— 
+ * ï¼Š æ³¨æ„	ï¼š	æ— 
  * ****************************************************************************/
 void memory_init(void *memAddr, mcu_t memSize)
 {
@@ -41,17 +41,17 @@ void memory_init(void *memAddr, mcu_t memSize)
 }
 
 /*******************************************************************************
- * £ª º¯ÊýÃû£º	memory_apply
- * £ª ÃèÊö	£º	ÄÚ´æÉêÇë
- * £ª ²ÎÊý	£º	size:	¿Õ¼ä´óÐ¡
- * £ª ·µ»Ø	£º	ÉêÇëµÄµØÖ·£¬null£¨ÉêÇëÊ§°Ü£©£¯ÓÐÐ§ÄÚ´æµØÖ·£¨ÉêÇë³É¹¦)
+ * ï¼Š å‡½æ•°åï¼š	memory_apply
+ * ï¼Š æè¿°	ï¼š	å†…å­˜ç”³è¯·
+ * ï¼Š å‚æ•°	ï¼š	size:	ç©ºé—´å¤§å°
+ * ï¼Š è¿”å›ž	ï¼š	ç”³è¯·çš„åœ°å€ï¼Œnullï¼ˆç”³è¯·å¤±è´¥ï¼‰ï¼æœ‰æ•ˆå†…å­˜åœ°å€ï¼ˆç”³è¯·æˆåŠŸ)
  * ****************************************************************************/
 void *memory_apply(mcu_t size)
 {
     MemArea_t *tail, *pion;
     void *memAddr;
 
-    /*×Ö½Ú¶ÔÆë*/
+    /*å­—èŠ‚å¯¹é½*/
     size += sizeof(MemArea_t) + (MEMORY_ALIGNMENT - 1);
     size &= ~(MEMORY_ALIGNMENT - 1);
     
@@ -83,10 +83,10 @@ void *memory_apply(mcu_t size)
 	return null;
 }
 /*******************************************************************************
- * £ª º¯ÊýÃû£º	memory_release
- * £ª ÃèÊö	£º	ÄÚ´æÊÍ·Å
- * £ª ²ÎÊý	£º	addr:	Ä¿±êÊÍ·ÅµØÖ·
- * £ª ·µ»Ø	£º	ÎÞ
+ * ï¼Š å‡½æ•°åï¼š	memory_release
+ * ï¼Š æè¿°	ï¼š	å†…å­˜é‡Šæ”¾
+ * ï¼Š å‚æ•°	ï¼š	addr:	ç›®æ ‡é‡Šæ”¾åœ°å€
+ * ï¼Š è¿”å›ž	ï¼š	æ— 
  * ****************************************************************************/
 void memory_release(void *addr)
 {
@@ -97,14 +97,14 @@ void memory_release(void *addr)
         
         if ((void*)(rlsArea->areaSize^MEMORY_FLAG) == rlsArea->nextArea)
         {
-            /*ÕÒµ½²åÈë½Úµã*/
+            /*æ‰¾åˆ°æ’å…¥èŠ‚ç‚¹*/
             for (pion = (MemArea_t*)&mem, tail = mem; (tail < rlsArea)&& (tail != null); 
                             pion = tail, tail = tail->nextArea)
             {}	
             
             rlsArea->nextArea = tail;
             pion->nextArea = rlsArea;
-            if (pion != (MemArea_t*)&mem)//Ä¿±ê²»´¦ÓÚÍ·½Úµã
+            if (pion != (MemArea_t*)&mem)//ç›®æ ‡ä¸å¤„äºŽå¤´èŠ‚ç‚¹
             {
                 rlsArea = pion;
             }

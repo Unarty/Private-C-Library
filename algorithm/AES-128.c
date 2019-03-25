@@ -1,13 +1,13 @@
-/**************Copyright(C)£¬2015-2026£¬QY Temp, Ltd.***************
-  *@brief   : AES ¼ÓÃÜÊµÏÖº¯Êı
-  *@notes   : 2016.11.11 CGQ ´´½¨   
+ï»¿/**************Copyright(C)ï¼Œ2015-2026ï¼ŒQY Temp, Ltd.***************
+  *@brief   : AES åŠ å¯†å®ç°å‡½æ•°
+  *@notes   : 2016.11.11 CGQ åˆ›å»º   
 *******************************************************************************/
 #include "aes-128.h"
 #include "stdlib/R_stdlib.h"
 
 
 
-const u8_t Sbox_MixColumns_1[256] = { // ÕıÏò s-box
+const u8_t Sbox_MixColumns_1[256] = { // æ­£å‘ s-box
     0x63, 0x7c, 0x77, 0x7b, 0xf2, 0x6b, 0x6f, 0xc5, 0x30, 0x01, 0x67, 0x2b, 0xfe, 0xd7, 0xab, 0x76, 
     0xca, 0x82, 0xc9, 0x7d, 0xfa, 0x59, 0x47, 0xf0, 0xad, 0xd4, 0xa2, 0xaf, 0x9c, 0xa4, 0x72, 0xc0,
     0xb7, 0xfd, 0x93, 0x26, 0x36, 0x3f, 0xf7, 0xcc, 0x34, 0xa5, 0xe5, 0xf1, 0x71, 0xd8, 0x31, 0x15, 
@@ -141,7 +141,7 @@ const u8_t MixColumns_E[256] = {
     0xd7, 0xd9, 0xcb, 0xc5, 0xef, 0xe1, 0xf3, 0xfd, 0xa7, 0xa9, 0xbb, 0xb5, 0x9f, 0x91, 0x83, 0x8d 
 };
 
-const u8_t InvSbox[256] = { // ÄæÏò s-box
+const u8_t InvSbox[256] = { // é€†å‘ s-box
     0x52, 0x09, 0x6a, 0xd5, 0x30, 0x36, 0xa5, 0x38, 0xbf, 0x40, 0xa3, 0x9e, 0x81, 0xf3, 0xd7, 0xfb, 
     0x7c, 0xe3, 0x39, 0x82, 0x9b, 0x2f, 0xff, 0x87, 0x34, 0x8e, 0x43, 0x44, 0xc4, 0xde, 0xe9, 0xcb,
     0x54, 0x7b, 0x94, 0x32, 0xa6, 0xc2, 0x23, 0x3d, 0xee, 0x4c, 0x95, 0x0b, 0x42, 0xfa, 0xc3, 0x4e, 
@@ -301,7 +301,7 @@ static void InvMixShitfSub(u8_t *buffer)
     }
 }
 #endif 
-static void ADDRoundKey(u32_t *buffer, u32_t *Key) //key ÎªÀ©Õ¹ÃÜÔ¿,Ê¹ÓÃint Ò»´ÎËÄ¸ö×Ö½Ú
+static void ADDRoundKey(u32_t *buffer, u32_t *Key) //key ä¸ºæ‰©å±•å¯†é’¥,ä½¿ç”¨int ä¸€æ¬¡å››ä¸ªå­—èŠ‚
 {
    *buffer++ ^= *Key++;
    *buffer++ ^= *Key++;
@@ -367,7 +367,7 @@ static void AES_Decrypt(AESKey_t *extKey, u8_t * buf)
     }
 }
 #if defined(AES_OFB_MODE)|| defined(AES_CFB_MODE)
-static void DataOR(void *trg, void *src, int count) //Êı¾İÒì»ò
+static void DataOR(void *trg, void *src, int count) //æ•°æ®å¼‚æˆ–
 {
 #define UNALIGNED(X, Y)                                 \
                         (((u32_t)X & (sizeof(u32_t) - 1))   \
@@ -376,7 +376,7 @@ static void DataOR(void *trg, void *src, int count) //Êı¾İÒì»ò
 #define LITTLEBLOCKSIZE (sizeof(u32_t))
 #define TOO_SMALL(LEN)  ((LEN) < BIGBLOCKSIZE)
 
-    if (trg != src)    //Ä¿±êÓëÔ´²»ÊÇÍ¬Ò»Î»ÖÃ
+    if (trg != src)    //ç›®æ ‡ä¸æºä¸æ˜¯åŒä¸€ä½ç½®
     {
         u8_t *dst_ptr = (u8_t*)trg;
         u8_t *src_ptr = (u8_t*)src;
@@ -424,7 +424,7 @@ static void DataOR(void *trg, void *src, int count) //Êı¾İÒì»ò
 #endif
 
 #ifdef AES_ECB_MODE
-//Electronic Codebook Book Êı×éÒç³ö·çÏÕ
+//Electronic Codebook Book æ•°ç»„æº¢å‡ºé£é™©
 static u8_t *AES_Encrypt_ECB(Cipher_t *cipher, u8_t * input, int *lenght)
 {
     int len;
@@ -445,7 +445,7 @@ static u8_t *AES_Encrypt_ECB(Cipher_t *cipher, u8_t * input, int *lenght)
     return input;
 }
 
-//Electronic Codebook Book Êı×éÒç³ö·çÏÕ
+//Electronic Codebook Book æ•°ç»„æº¢å‡ºé£é™©
 u8_t *AES_Decrypt_ECB(Cipher_t *cipher, u8_t * input, int *lenght)
 {
     int len = *lenght;
@@ -463,7 +463,7 @@ u8_t *AES_Decrypt_ECB(Cipher_t *cipher, u8_t * input, int *lenght)
 #endif
 
 #ifdef AES_CBC_MODE
-//Cipher Block Chaining  Êı×éÒç³ö·çÏÕ
+//Cipher Block Chaining  æ•°ç»„æº¢å‡ºé£é™©
 u8_t *AES_Encrypt_CBC(Cipher_t *cipher, u8_t * input, int *lenght)
 {
     int len;

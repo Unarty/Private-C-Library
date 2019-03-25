@@ -1,7 +1,7 @@
-/***************************Copyright QYKJ   2015-06-18*************************
-ÎÄ	¼þ£º	Swap.h
-Ëµ	Ã÷£º	ÄÚ´æÊý¾Ý½»»»/×ª»»Ïà¹Øº¯Êý
-ÐÞ¡¡¸Ä£º	2015.06.28 Unarty establish
+ï»¿/***************************Copyright QYKJ   2015-06-18*************************
+æ–‡	ä»¶ï¼š	Swap.h
+è¯´	æ˜Žï¼š	å†…å­˜æ•°æ®äº¤æ¢/è½¬æ¢ç›¸å…³å‡½æ•°
+ä¿®ã€€æ”¹ï¼š	2015.06.28 Unarty establish
 *******************************************************************************/
 #ifndef __SWAP_H
 #define __SWAP_H
@@ -13,11 +13,11 @@
 void  Swap_bigSmallShort(u16_t *pShort);   //0xaa55 -> 0x55aa
 void  Swap_bigSmallLong(u32_t *pLong);   //0x12345678 -> 0x87654321
 void  Swap_headTail(u8_t *head, u16_t len);  //0xaabbccddeeffgg -> 0xggffeeddccbbaa
-u16_t Swap_hexChar(char *buf, u8_t *hex, u16_t len, char fill); //0x12,0x34,0x56,0x78,0xab,0x0c -> "12 34 56 78 ab 0c" ·µ»Ø×Ö·û³¤¶È
-u16_t Swap_charHex(u8_t *hex, char *buf); //"12 34 56 87 ab 0c" -> 0x12,0x34,0x56,0x78,0xab,0x0c ·µ»ØÊý¾Ý³¤¶È
-u8_t  Swap_numChar(char *buf, u32_t num);    //0x0400 -> "1024" ·µ»Ø×Ö·û³¤¶È
-u32_t Swap_charNum(char *buf);           //"1024" ·µ»Ø 0x0400;
-u16_t Swap_BCDChar(char *buf, u8_t *bcd, u16_t len);  //0x123456 -> "123456" ·µ»Ø×Ö·û³¤¶È
+u16_t Swap_hexChar(char *buf, u8_t *hex, u16_t len, char fill); //0x12,0x34,0x56,0x78,0xab,0x0c -> "12 34 56 78 ab 0c" è¿”å›žå­—ç¬¦é•¿åº¦
+u16_t Swap_charHex(u8_t *hex, char *buf); //"12 34 56 87 ab 0c" -> 0x12,0x34,0x56,0x78,0xab,0x0c è¿”å›žæ•°æ®é•¿åº¦
+u8_t  Swap_numChar(char *buf, u32_t num);    //0x0400 -> "1024" è¿”å›žå­—ç¬¦é•¿åº¦
+u32_t Swap_charNum(char *buf);           //"1024" è¿”å›ž 0x0400;
+u16_t Swap_BCDChar(char *buf, u8_t *bcd, u16_t len);  //0x123456 -> "123456" è¿”å›žå­—ç¬¦é•¿åº¦
 u16_t Swap_CharBCD(u8_t *bcd, char *buf);   //"98765" -> 0x098765
 u16_t Swap_numBCD(u8_t *bcd, u64_t num);  //0x0100 -> 0x0256
 u64_t Swap_BCDNum(u8_t *bcd, u16_t len);      //0x1024 -> 0x0400

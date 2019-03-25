@@ -1,10 +1,10 @@
-/*******************************************************************************
- * £ª ÎÄ¼şÃû£º	list.h
- * £ª ÃèÊö	£º	Á´±í²Ù×÷Í·ÎÄ¼ş
- * £ª ´´½¨Õß£º	UnartyChen
- * £ª °æ±¾	£º	V1.0
- * £ª ÈÕÆÚ	£º	2015.03.13
- * £ª ĞŞ¸Ä	£º  ÔİÎŞ	
+ï»¿/*******************************************************************************
+ * ï¼Š æ–‡ä»¶åï¼š	list.h
+ * ï¼Š æè¿°	ï¼š	é“¾è¡¨æ“ä½œå¤´æ–‡ä»¶
+ * ï¼Š åˆ›å»ºè€…ï¼š	UnartyChen
+ * ï¼Š ç‰ˆæœ¬	ï¼š	V1.0
+ * ï¼Š æ—¥æœŸ	ï¼š	2015.03.13
+ * ï¼Š ä¿®æ”¹	ï¼š  æš‚æ— 	
  * ****************************************************************************/
 #ifndef __LIST_H
 #define	__LIST_H
@@ -26,8 +26,8 @@ typedef struct
 	Node_t	*node;
 }ListHandler_t;
 
-typedef u8_t (*cmpFun)(void *src, void *dest);	//Êı¾İ±È½Ïº¯Êı
-typedef u8_t (*processorFun)(void *listPaycoad, void *chagePoint);			//Êı¾İ±éÀú
+typedef u8_t (*cmpFun)(void *src, void *dest);	//æ•°æ®æ¯”è¾ƒå‡½æ•°
+typedef u8_t (*processorFun)(void *listPaycoad, void *chagePoint);			//æ•°æ®éå†
 
 
 void    list_init(ListHandler_t *head);
