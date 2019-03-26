@@ -10,6 +10,8 @@
                 2017.09.05 Unarty
                 更新分配Bug, 当可分配区域 n - size < sizeof(MemArea_t) 时, 会出现下下结点内存值复盖
                 修改分配内存标记方法。
+                2019.03.26 Unarty
+                内存释放增加地址边界对齐判断，某些设备内存非对齐访问时会导致硬件异常。
  * ****************************************************************************/
 #include "memory.h"
 
@@ -90,7 +92,7 @@ void *memory_apply(mcu_t size)
  * ****************************************************************************/
 void memory_release(void *addr)
 {
-    if (null != addr)
+    if (null != addr && (((int)addr &(MEMORY_ALIGNMENT - 1)) == 0))
     {
         MemArea_t *tail, *pion;
         MemArea_t *rlsArea = (MemArea_t*)((mcu_t)addr - sizeof(MemArea_t));
